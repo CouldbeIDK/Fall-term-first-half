@@ -3,30 +3,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-/*
-get the range of the numbers
 
-make a list the size of the range
-
-iterate through the randomlist and increment the corresponding index by one
-
-go through the tally list and print the index the amount of times in the index
-*/
-
-/*
-Let A = a new unsorted array
-let u,l = the upper and lower bounds
-tally[u-l+1]
-for i = 0 to A.length - 1
-	x = A[i]
-	tally[x-l]++
-r = 0
-for j = 0 to tally.length - 1
-	if tally[j] > 0 then
-		for tally[j]
-			A[r] = l + j
-			r++
-*/
 
 void printer(int *A, int length){
 	int j;
@@ -66,7 +43,6 @@ int main() {
 	gettimeofday(&start, NULL);
 	countsort(sorted, slength);
 	gettimeofday(&end, NULL);
-	printer(sorted, slength);
 	secs  = end.tv_sec  - start.tv_sec;
 	usecs = end.tv_usec - start.tv_usec;
 	printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);

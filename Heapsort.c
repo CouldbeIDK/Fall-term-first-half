@@ -3,6 +3,9 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+/*
+	The loop invariant is that
+*/
 int Parent(int i){
 	return i/2;
 }
@@ -34,14 +37,12 @@ void MaxHeapify(int * A,int i){
 	if (r <= A[0] && A[r] > A[largest]){
 		largest = r;
 	}
-	printf("A[%d] %d \t A[%d] %d \t largest: A[%d] %d\n", l, A[l], r, A[r], largest, A[largest]);
 	if (largest != i){
 		hold = A[i];
 		A[i] = A[largest];
 		A[largest] = hold;
 		MaxHeapify(A, largest);
 	}
-	printer(A,A[0]);
 }
 
 BuildMaxHeap(int *A, int length){
@@ -79,7 +80,6 @@ int main() {
 	gettimeofday(&start, NULL);
 	HeapSort(sorted, slength);
 	gettimeofday(&end, NULL);
-	printer(sorted, sorted[0] + 1);
 	secs  = end.tv_sec  - start.tv_sec;
 	usecs = end.tv_usec - start.tv_usec;
 	printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);

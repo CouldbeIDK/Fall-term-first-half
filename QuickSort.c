@@ -3,6 +3,10 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+/*
+	The loop invariant is that after each pass of the sort, the pivot element is in the correct place. 
+*/
+
 void printer(int *A, int length){
 	int j;
 	for (j=0; j < length; j++) {
@@ -50,7 +54,6 @@ int main() {
 	gettimeofday(&start, NULL);
 	quicksort(sorted, 0, slength-1);
 	gettimeofday(&end, NULL);
-	printer(sorted, slength);
 	secs  = end.tv_sec  - start.tv_sec;
 	usecs = end.tv_usec - start.tv_usec;
 	printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);

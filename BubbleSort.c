@@ -6,6 +6,13 @@
 //the Loop invariant is that everything before index
 // i is sorted.
 
+void printer(int *A, int length){
+	int j;
+	for (j=0; j < length; j++) {
+		printf("%d\n", A[j]);
+	}
+}
+
 int main() {
 	struct timeval start, end;
 	long mtime, secs, usecs;
@@ -27,8 +34,8 @@ int main() {
 		}
 	}
 	gettimeofday(&end, NULL);
-	
+	printer(sorted, slength);
 	secs  = end.tv_sec  - start.tv_sec;
 	usecs = end.tv_usec - start.tv_usec;
-	printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);
+	//printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);
 }

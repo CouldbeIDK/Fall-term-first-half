@@ -43,7 +43,8 @@ int main() {
 	gettimeofday(&start, NULL);
 	countsort(sorted, slength);
 	gettimeofday(&end, NULL);
+	printer(sorted,slength);
 	secs  = end.tv_sec  - start.tv_sec;
 	usecs = end.tv_usec - start.tv_usec;
-	printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);
+	//printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);
 }

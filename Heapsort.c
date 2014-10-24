@@ -3,9 +3,6 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-/*
-	The loop invariant is that
-*/
 int Parent(int i){
 	return i/2;
 }
@@ -21,8 +18,8 @@ int Right(int i){
 void printer(int *A, int length){
 	int j;
 	for (j=0; j < length; j++) {
-		printf("%d\t", A[j]);
-	}printf("\n");
+		printf("%d\n", A[j]);
+	}
 }
 
 void MaxHeapify(int * A,int i){
@@ -80,7 +77,8 @@ int main() {
 	gettimeofday(&start, NULL);
 	HeapSort(sorted, slength);
 	gettimeofday(&end, NULL);
+	printer(sorted,slength);
 	secs  = end.tv_sec  - start.tv_sec;
 	usecs = end.tv_usec - start.tv_usec;
-	printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);
+	//printf("Time Spent: %d.%06d Microseconds\n", (int)secs, (int)usecs);
 }

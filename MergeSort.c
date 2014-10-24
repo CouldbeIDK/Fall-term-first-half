@@ -12,6 +12,14 @@ half of the array is always the lowest number in
 the list. Even if the top is taken off.
 
 */
+
+void printer(int *A, int length){
+	int j;
+	for (j=0; j < length; j++) {
+		printf("%d\n", A[j]);
+	}
+}
+
 void MERGE(int *A,int p,int q,int r){
 	int na = q - p + 2;
 	int nb = r - q + 1;
@@ -73,8 +81,8 @@ int main() {
 	gettimeofday(&start,NULL);
 	MERGESORT(sorted, 0, slength-1);
 	gettimeofday(&end,NULL);
-	
+	printer(sorted,slength);
 	secs  = end.tv_sec  - start.tv_sec;
 	usecs = end.tv_usec - start.tv_usec;
-	printf("Time Spent: %d.%06d Seconds\n", (int)secs, (int)usecs);
+	//printf("Time Spent: %d.%06d Seconds\n", (int)secs, (int)usecs);
 }
